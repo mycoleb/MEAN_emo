@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div ng-controller='sessionController'>
+        <h1>Add Quote</h1>
+        <h2>{{ currentUser.name}}</h2><br>
+        <h2>{{ currentUser._id}}</h2><br>
+
+            <div ng-controller='quoteController'>
+               <h3>Add a new Quote:</h3>
+                <form ng-submit='addQuote(currentUser._id, newQuote)' name="quoteform1">
+                    <input type="date" placeholder="  /  /  " ng-model='newQuote.quote_date'> &nbsp;&nbsp;Quote Date<br>
+                    <input type='text' placeholder="Enter name here." ng-model='newQuote.author'> &nbsp;&nbsp;First Name<br>
+                    <textarea placeholder="Enter quote here." ng-model='newQuote.content'></textarea>&nbsp;&nbsp;Quote<br>
+                    <!--<input type='number' ng-model='newQuote.likes' value = "0">&nbsp;&nbsp;Likes<br>-->
+                    <input type='submit' value='Add'>
+                </form>
+                <p> Message Length: {{144-newQuote.content.length}}</p>
+            </div>
+            
+        <a href='/logout'>Logout</a><br>
+        <a href="#/topthree">Top Three (no bang)</a><br>
+        <a href="#/showall">Show All (no bang)</a><br>
+        </div>
+    </body>
+</html>

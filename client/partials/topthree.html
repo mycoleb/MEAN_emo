@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div ng-controller='sessionController'>
+            <div ng-controller='quoteController'>
+               <h1> Top Three</h1>
+           
+                <table style="width:100%">
+                <tr>
+                    <th>Quote</th>
+                    <th>Author</th> 
+                    <th>Date</th>
+                    <th>Likes</th>
+                    <th>Actions</th>
+                </tr>
+                <tr ng-repeat=" quote in quotes | orderBy: '-likes'| limitTo: 3" >
+                    <td>{{quote.content }}</td>
+                    <td>{{quote.author}}</td>
+                    <td>{{quote.quote_date | date: fulldate}}</td>
+                    <td>{{quote.likes}}</td>
+                    <td><button ng-click='show()'>Show</button></td>
+                </tr>
+                </table>
+
+            </div>
+            <br><br>
+        <a href='/logout'>Logout</a><br>
+        <a href="#/showall">Show All (no bang)</a><br>
+        <a href="#/dash">Add Quote (no bang)</a><br>
+        </div>
+    </body>
+</html>
